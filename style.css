@@ -163,14 +163,135 @@ nav .login a {
   background: #35e6d7;
 }
 
+header {
+  width: 100%;
+}
+
+header h1 {
+  color: #ccc;
+  font-size: 140px;
+  line-height: 100px;
+  text-align: right;
+  font-weight: bold;
+  width: 80%;
+  margin: 36px auto 0;
+}
+
+.container_header {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 70vh;
+  margin: 0 auto;
+}
+
+.container_header .list_button {
+  display: flex;
+  flex-direction: column;
+  width: 5.8%;
+  height: 100%;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.container_header .list_button button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  background-color: #171717;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.6s ease, transform 0.2s ease;
+}
+
+.list_button button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #0056b3;
+}
+
+.list_button a {
+  background: linear-gradient(
+    45deg,
+    #e6fb04,
+    #ff6600,
+    #00ff66,
+    #00ffff,
+    #ff00ff,
+    #ff0099,
+    #6e0dd0,
+    #ff3300,
+    #099fff
+  );
+  background-size: 400%;
+  width: 100%;
+  height: 100%;
+  animation: animate 20s linear infinite;
+  filter: blur(25px);
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.container_header .list_button i {
+  font-size: 30px;
+}
+
+.container_header .images {
+  width: 94%;
+  height: 100%;
+}
+
+.container_header .images img {
+  width: 100%;
+  height: 550px;
+  border-radius: 10px;
+}
+
+.container_images {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 82%;
+  right: 5%;
+}
+
+.container_images img {
+  width: 180px;
+  height: 120px;
+  border-radius: 10px;
+  margin-right: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container_images img.active,
+.container_images img:hover {
+  border: 1px solid #fff;
+  transform: scale(1.02);
+}
+
 .display__container {
   background-color: #09090c;
   padding: 2rem 1rem;
 }
 
 .section__container {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 50px auto 0;
   text-align: center;
 }
 
@@ -257,14 +378,16 @@ nav .login a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
   flex-wrap: wrap;
   width: 100%;
 }
 
 .showcase .text-sec .images .image {
-  flex: 1 1 calc(33.333% - 20px);
   text-align: center;
+  height: auto;
+  background: #2e2c29;
+  border-radius: 20px;
 }
 
 .showcase .text-sec .images img {
@@ -278,10 +401,18 @@ nav .login a {
   transform: scale(1.05);
 }
 
-.showcase .text-sec .images p {
+.showcase .text-sec .images h2 {
   margin: 15px;
   color: #c5c5c5;
   font-size: 16px;
+}
+
+.showcase .text-sec .images p {
+  color: #c5c5c5;
+  font-size: 16px;
+  width: 300px;
+  margin: 5px auto 25px;
+  text-align: justify;
 }
 
 .services .header,
@@ -313,6 +444,7 @@ nav .login a {
   padding: 20px;
   border-radius: 40px;
   width: 25%;
+  transition: 0.6s ease;
 }
 
 .services .service-items .item .title {
@@ -352,7 +484,8 @@ nav .login a {
   margin-bottom: 10px;
 }
 
-.services .service-items .item.active {
+.services .service-items .item.active,
+.services .service-items .item:hover {
   background: #3596e6;
 }
 

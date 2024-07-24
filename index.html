@@ -28,7 +28,7 @@
       </div>
     </nav>
 
-    <div class="prompt-sec">
+    <!-- <div class="prompt-sec">
       <h1>HA LONG BAY</h1>
       <div class="prompt-img">
         <img src="assets/bg1.jpg" class="active" />
@@ -43,7 +43,36 @@
           <button id="stop">Stop</button>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <!-- <button><i class="ri-stop-mini-fill"></i></button>
+    <button><i class="ri-arrow-right-circle-fill"></i></button>
+    <button><i class="ri-arrow-left-circle-fill"></i></button> -->
+
+    <header>
+      <h1>HA LONG BAY</h1>
+      <div class="container_header">
+        <div class="list_button">
+          <button id="stop"><i class="ri-stop-mini-fill"></i></button>
+          <button id="next"><i class="ri-arrow-right-circle-fill"></i></button>
+          <button id="prev"><i class="ri-arrow-left-circle-fill"></i></button>
+          <a href="#"></a>
+        </div>
+        <div class="images">
+          <img src="assets/bg1.jpg" alt="" id="main-image" />
+        </div>
+        <div class="container_images">
+          <img
+            src="assets/bg1.jpg"
+            alt=""
+            class="active thumbnail"
+            data-index="0"
+          />
+          <img src="assets/bg2.jpg" alt="" class="thumbnail" data-index="1" />
+          <img src="assets/bg3.jpg" alt="" class="thumbnail" data-index="2" />
+        </div>
+      </div>
+    </header>
 
     <section class="display__container" id="introduction">
       <div class="section__container">
@@ -79,15 +108,30 @@
         <div class="images">
           <div class="image">
             <img src="assets/hon_ga_choi.jfif" />
-            <p>Hòn Gà Chọi</p>
+            <h2>Hòn Gà Chọi</h2>
+            <p>
+              Biểu tượng nổi bật của Vịnh Hạ Long, với hai khối đá tựa như gà
+              chọi vươn ra biển, tạo nên một cảnh sắc ấn tượng và quyến rũ, gợi
+              mở những câu chuyện lịch sử và văn hóa phong phú.
+            </p>
           </div>
           <div class="image">
             <img src="assets/hang_sung_sot.jfif" />
-            <p>Hang Sửng Sốt</p>
+            <h2>Hang Sửng Sốt</h2>
+            <p>
+              Kỳ quan của Vịnh Hạ Long, nổi bật với nhũ đá lấp lánh và cấu trúc
+              hùng vĩ. Đây là điểm đến mê hoặc, mang đến trải nghiệm ấn tượng
+              cho du khách.
+            </p>
           </div>
           <div class="image">
             <img src="assets/dao_ngoc_vung.jpg" />
-            <p>Đảo Ngọc Vừng</p>
+            <h2>Đảo Ngọc Vừng</h2>
+            <p>
+              Viên ngọc quý của Vịnh Hạ Long, nổi bật với bãi biển cát trắng mịn
+              và nước biển trong xanh. Đây là điểm đến lý tưởng cho những ai yêu
+              thích sự yên bình và vẻ đẹp hoang sơ.
+            </p>
           </div>
         </div>
       </div>
@@ -205,38 +249,35 @@
     </footer>
 
     <script>
-      var images = document.querySelectorAll(".prompt-img img");
+      var images = ["assets/bg1.jpg", "assets/bg2.jpg", "assets/bg3.jpg"];
       var currentIndex = 0;
       var interval;
 
-      function showImage(index) {
-        images.forEach((img, i) => {
+      var mainImage = document.getElementById("main-image");
+      var thumbnails = document.getElementsByClassName("thumbnail");
+      var nextButton = document.getElementById("next");
+      var prevButton = document.getElementById("prev");
+      var stopButton = document.getElementById("stop");
+
+      function updateMainImage(index) {
+        mainImage.src = images[index];
+        for (var i = 0; i < thumbnails.length; i++) {
           if (i === index) {
-            img.classList.add("active");
+            thumbnails[i].classList.add("active");
           } else {
-            img.classList.remove("active");
+            thumbnails[i].classList.remove("active");
           }
-        });
+        }
       }
 
       function nextImage() {
         currentIndex = (currentIndex + 1) % images.length;
-        showImage(currentIndex);
+        updateMainImage(currentIndex);
       }
 
       function prevImage() {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
-        showImage(currentIndex);
-      }
-
-      function firstImage() {
-        currentIndex = 0;
-        showImage(currentIndex);
-      }
-
-      function lastImage() {
-        currentIndex = images.length - 1;
-        showImage(currentIndex);
+        updateMainImage(currentIndex);
       }
 
       function startSlideshow() {
@@ -247,12 +288,20 @@
         clearInterval(interval);
       }
 
-      document.getElementById("next").onclick = nextImage;
-      document.getElementById("prev").onclick = prevImage;
-      document.getElementById("first").onclick = firstImage;
-      document.getElementById("last").onclick = lastImage;
-      document.getElementById("start").onclick = startSlideshow;
-      document.getElementById("stop").onclick = stopSlideshow;
+      nextButton.addEventListener("click", nextImage);
+      prevButton.addEventListener("click", prevImage);
+      stopButton.addEventListener("click", stopSlideshow);
+
+      for (var i = 0; i < thumbnails.length; i++) {
+        (function (index) {
+          thumbnails[index].addEventListener("click", function () {
+            currentIndex = index;
+            updateMainImage(index);
+          });
+        })(i);
+      }
+
+      startSlideshow();
     </script>
   </body>
 </html>
