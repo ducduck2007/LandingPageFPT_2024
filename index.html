@@ -31,13 +31,12 @@
     <header>
       <h1>HA LONG BAY</h1>
       <div class="container_header">
-        <div class="list_button">
-          <button id="stop"><i class="ri-stop-mini-fill"></i></button>
-          <button id="next"><i class="ri-arrow-right-circle-fill"></i></button>
-          <button id="prev"><i class="ri-arrow-left-circle-fill"></i></button>
-        </div>
         <div class="images">
           <img src="assets/bg1.jpg" alt="" id="main-image" />
+          <div class="list_button">
+            <button id="prev"><i class="ri-arrow-left-s-line"></i></button>
+            <button id="next"><i class="ri-arrow-right-s-line"></i></button>
+          </div>
         </div>
         <div class="container_images">
           <img
@@ -183,6 +182,7 @@
       <div class="book-ve">
         <div class="box-ve">
           <img src="assets/book-ve3.jpg" alt="ảnh hotel" />
+          <div class="info-box">Thông tin thêm</div>
           <div class="adj">
             <span>Price : 1.xx9.xxx </span>
             <p>Hotline:</p>
@@ -191,6 +191,7 @@
         </div>
         <div class="box-ve">
           <img src="assets/book-ve1.jpg" alt="ảnh hotel" />
+          <div class="info-box">Thông tin thêm</div>
           <div class="adj">
             <span>Price : 2.1xx.xxx </span>
             <p>Hotline:</p>
@@ -199,6 +200,7 @@
         </div>
         <div class="box-ve">
           <img src="assets/book-ve2.jpg" alt="ảnh hotel" />
+          <div class="info-box">Thông tin thêm</div>
           <div class="adj">
             <span>Price : 10.xxx.xxx </span>
             <p>Hotline:</p>
@@ -239,7 +241,6 @@
       var thumbnails = document.getElementsByClassName("thumbnail");
       var nextButton = document.getElementById("next");
       var prevButton = document.getElementById("prev");
-      var stopButton = document.getElementById("stop");
 
       function updateMainImage(index) {
         mainImage.src = images[index];
@@ -266,13 +267,8 @@
         interval = setInterval(nextImage, 2000);
       }
 
-      function stopSlideshow() {
-        clearInterval(interval);
-      }
-
       nextButton.addEventListener("click", nextImage);
       prevButton.addEventListener("click", prevImage);
-      stopButton.addEventListener("click", stopSlideshow);
 
       for (var i = 0; i < thumbnails.length; i++) {
         (function (index) {

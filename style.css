@@ -22,7 +22,12 @@ img {
 }
 
 body {
-  background: #09090c;
+  background: rgb(29, 147, 247);
+  background: linear-gradient(
+    90deg,
+    rgba(29, 147, 247, 1) 0%,
+    rgba(17, 17, 17, 1) 100%
+  );
 }
 
 nav {
@@ -98,7 +103,7 @@ header h1 {
   color: #ccc;
   font-size: 140px;
   line-height: 100px;
-  text-align: right;
+  text-align: center;
   font-weight: bold;
   width: 80%;
   margin: 36px auto 0;
@@ -106,49 +111,18 @@ header h1 {
 
 .container_header {
   display: flex;
-  justify-content: space-between;
-  width: 80%;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
   height: 70vh;
   margin: 0 auto;
-}
-
-.container_header .list_button {
-  display: flex;
-  flex-direction: column;
-  width: 5.8%;
-  height: 100%;
-  padding: 4px;
-  border-radius: 10px;
-}
-
-.container_header .list_button button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 50px;
-  margin-bottom: 10px;
-  background-color: #171717;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.6s ease, transform 0.2s ease;
-}
-
-.list_button button:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #0056b3;
-}
-
-.container_header .list_button i {
-  font-size: 30px;
+  position: relative;
 }
 
 .container_header .images {
-  width: 94%;
+  width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .container_header .images img {
@@ -157,12 +131,52 @@ header h1 {
   border-radius: 10px;
 }
 
+.container_header .list_button {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.container_header .list_button button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.6s ease, transform 0.2s ease;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list_button button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #0056b3;
+}
+
+.container_header .list_button #prev {
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.container_header .list_button #next {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
 .container_images {
   display: flex;
   align-items: center;
   position: absolute;
-  top: 82%;
-  right: 5%;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .container_images img {
@@ -180,7 +194,6 @@ header h1 {
 }
 
 .display__container {
-  background-color: #09090c;
   padding: 2rem 1rem;
 }
 
@@ -249,7 +262,6 @@ header h1 {
 .showcase {
   padding: 40px 80px;
   margin-top: 20px;
-  background-color: #09090c;
   border-radius: 20px;
 }
 
@@ -517,6 +529,7 @@ footer {
   width: 350px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .box-ve img {
@@ -578,4 +591,13 @@ footer {
 
 .adj button:hover::before {
   width: 9em;
+}
+
+.info-box {
+  position: absolute;
+  top: 58%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 14px;
 }
