@@ -7,24 +7,73 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
     />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Landing Page Travel</title>
   </head>
+  <style>
+    /* Call button */
+    .call-button,
+    .chat-button {
+      position: fixed;
+      left: 20px;
+      background-color: red;
+      color: white;
+      padding: 15px;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: pulse 1s infinite;
+    }
+
+    .call-button {
+      bottom: 80px;
+    }
+
+    .chat-button {
+      bottom: 20px;
+      background-color: blue;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+  </style>
   <body>
     <nav id="free-trial">
       <div class="logo">
         <i class="ri-road-map-fill"></i>
       </div>
       <div class="nav-links">
-        <a href="#introduction">Introduction</a>
-        <a href="#location">Location</a>
-        <a href="#services">Services</a>
-        <a href="#panorama">Panorama</a>
+        <a href="#introduction">Giới thiệu</a>
+        <a href="#location">Vị trí</a>
+        <a href="#services">Dịch vụ</a>
+        <a href="#panorama">Toàn cảnh</a>
+
         <div class="separator"></div>
       </div>
       <div class="login">
-        <a href="#">Login</a>
-        <img src="assets/logo.jpg" alt="LogoBeach" />
+        <button class="button-24" role="button">Đăng ký</button>
       </div>
     </nav>
 
@@ -53,7 +102,7 @@
 
     <section class="display__container" id="introduction">
       <div class="section__container">
-        <h2 class="section__title">Ha Long Introduction</h2>
+        <h2 class="section__title">Giới thiệu về Hạ Long</h2>
         <p class="section__subtitle">
           Khoảnh khắc vui nhất trong cuộc đời con người, là một chuyến khởi hành
           vào những vùng đất chưa biết.
@@ -182,7 +231,7 @@
       <div class="book-ve">
         <div class="box-ve">
           <img src="assets/book-ve3.jpg" alt="ảnh hotel" />
-          <div class="info-box">Thông tin thêm</div>
+          <div class="info-box">Khách sạn</div>
           <div class="adj">
             <span>Price : 1.xx9.xxx </span>
             <p>Hotline:</p>
@@ -191,7 +240,7 @@
         </div>
         <div class="box-ve">
           <img src="assets/book-ve1.jpg" alt="ảnh hotel" />
-          <div class="info-box">Thông tin thêm</div>
+          <div class="info-box">Khách sạn</div>
           <div class="adj">
             <span>Price : 2.1xx.xxx </span>
             <p>Hotline:</p>
@@ -200,7 +249,7 @@
         </div>
         <div class="box-ve">
           <img src="assets/book-ve2.jpg" alt="ảnh hotel" />
-          <div class="info-box">Thông tin thêm</div>
+          <div class="info-box">Khách sạn</div>
           <div class="adj">
             <span>Price : 10.xxx.xxx </span>
             <p>Hotline:</p>
@@ -209,6 +258,14 @@
         </div>
       </div>
     </div>
+
+    <a href="tel:+0256584595" class="call-button">
+      <i class="fas fa-phone"></i>
+    </a>
+
+    <a href="https://zalo.me/0256584595" class="chat-button">
+      <i class="fas fa-comments"></i>
+    </a>
 
     <footer>
       <div class="footerContainer">
@@ -219,11 +276,11 @@
         </div>
         <div class="footerNav">
           <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#location">Location</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#panorama">Panorama</a></li>
+            <li><a href="">Trang chủ</a></li>
+            <li><a href="#introduction">Giới thiệu</a></li>
+            <li><a href="#location">Vị trí</a></li>
+            <li><a href="#services">Dịch vụ</a></li>
+            <li><a href="#panorama">Toàn cảnh</a></li>
           </ul>
         </div>
       </div>
@@ -264,7 +321,7 @@
       }
 
       function startSlideshow() {
-        interval = setInterval(nextImage, 2000);
+        interval = setInterval(nextImage, 5000);
       }
 
       nextButton.addEventListener("click", nextImage);
